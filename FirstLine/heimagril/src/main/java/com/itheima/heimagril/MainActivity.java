@@ -27,10 +27,10 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements AbsListView.OnScrollListener {
 
-    private ListView mLv;
     private static final String TAG = "MainActivity";
     Gson mGson = new Gson();
     List<GrilsBean.ResultsBean> mListData = new ArrayList<>();
+    private ListView mLv;
     private MyAdapter mAdapter;
     private int count;
     private boolean isLoading;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -137,6 +138,11 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         }
     }
 
+    static class ViewHolder {
+        TextView tvDesc;
+        ImageView ivGril;
+    }
+
     class MyAdapter extends BaseAdapter {
 
 
@@ -179,10 +185,5 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
 
             return convertView;
         }
-    }
-
-    static class ViewHolder {
-        TextView tvDesc;
-        ImageView ivGril;
     }
 }
