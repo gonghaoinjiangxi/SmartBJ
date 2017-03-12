@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/contentview" />
             <option value="$PROJECT_DIR$/heimagril" />
             <option value="$PROJECT_DIR$/myview" />
           </set>

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mEt;
     private Context mContext;
     private List<String> mListData;
+    private MyAdapter mMyAdapter;
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
             ListView listView = (ListView) View.inflate(mContext, R.layout.list_view, null);
             listView.setBackgroundResource(R.mipmap.listview_background);
 
-            MyAdapter myAdapter = new MyAdapter();
-            listView.setAdapter(myAdapter);
+            mMyAdapter = new MyAdapter();
+            listView.setAdapter(mMyAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder = null;
             if (convertView == null) {
@@ -113,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             holder.mTvNum.setText(mListData.get(position));
+            holder.mIvDel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListData.remove(mListData.get(position));
+                    mMyAdapter.notifyDataSetChanged();
+                }
+            });
             return convertView;
         }
 
