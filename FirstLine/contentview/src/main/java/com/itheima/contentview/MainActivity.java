@@ -14,15 +14,15 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+    private MyAdapter mMyAdapter;
     private ImageView mIvArrow;
+    private ArrayList<String> mListData;
     private EditText mEt;
     private Context mContext;
-    private List<String> mListData;
-    private MyAdapter mMyAdapter;
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
             pop.setOutsideTouchable(true);
             pop.setFocusable(true);
 
+            ListView listView = (ListView) View.inflate(MainActivity.this, R.layout.list_view, null);
 
-            ListView listView = (ListView) View.inflate(mContext, R.layout.list_view, null);
             listView.setBackgroundResource(R.mipmap.listview_background);
 
             mMyAdapter = new MyAdapter();
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mContext = this;
 
         initView();
@@ -136,4 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
