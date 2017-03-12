@@ -8,20 +8,10 @@
     android:padding="8dp"
     tools:context="com.itheima.contentview.MainActivity">
 
-    <EditText
-        android:id="@+id/et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/et_background"
-        />
-
-    <ImageView
-        android:id="@+id/iv_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@mipmap/down_arrow"/>
+  <com.itheima.contentview.com.itheima.contentview.MyView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+  </com.itheima.contentview.com.itheima.contentview.MyView>
 
 
 </RelativeLayout>

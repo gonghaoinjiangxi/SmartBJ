@@ -1,1 +1,1 @@
-include ':app', ':heimagril', ':myview', ':contentview'
+include ':app', ':heimagril', ':myview', ':contentview', ':drawview'

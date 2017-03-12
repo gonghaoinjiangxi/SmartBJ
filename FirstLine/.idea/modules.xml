@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/FirstLine.iml" filepath="$PROJECT_DIR$/FirstLine.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/contentview/contentview.iml" filepath="$PROJECT_DIR$/contentview/contentview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/drawview/drawview.iml" filepath="$PROJECT_DIR$/drawview/drawview.iml" />
       <module fileurl="file://$PROJECT_DIR$/heimagril/heimagril.iml" filepath="$PROJECT_DIR$/heimagril/heimagril.iml" />
       <module fileurl="file://$PROJECT_DIR$/myview/myview.iml" filepath="$PROJECT_DIR$/myview/myview.iml" />
     </modules>
