@@ -112,6 +112,6 @@ public class MyView extends View {
 
     public void setprogress(int progress) {
         mProgress = progress;
-        invalidate();
+
     }
 }
