@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.itheima.smartbj35.BaseActivity;
 import com.itheima.smartbj35.MainActivity;
 import com.itheima.smartbj35.R;
+import com.itheima.smartbj35.Utils.SPUtils;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import butterknife.BindView;
@@ -20,6 +21,8 @@ import butterknife.OnClick;
  * Created by 龚浩 on 2017/3/16.
  */
 public class GuideActivity extends BaseActivity {
+    public static final String TOGUIDE_ACTIVITY = "toguide_activity";
+
     @BindView(R.id.vp_container_guide)
     ViewPager mVpContainerGuide;
     @BindView(R.id.btn_start_guide)
@@ -102,6 +105,7 @@ public class GuideActivity extends BaseActivity {
     @OnClick(R.id.btn_start_guide)
     public void onClick() {
         navigateTo(MainActivity.class);
+        SPUtils.saveBoolean(mContext,TOGUIDE_ACTIVITY,true);
     }
 
 
