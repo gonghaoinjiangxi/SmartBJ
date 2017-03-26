@@ -3,7 +3,8 @@
               android:orientation="vertical"
               android:background="@drawable/side_nav_bar"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:gravity="center_vertical"
+              android:layout_height="200dp">
 
     <ImageView
         android:src="@drawable/avatar"

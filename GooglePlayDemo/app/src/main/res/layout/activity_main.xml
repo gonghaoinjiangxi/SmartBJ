@@ -6,12 +6,11 @@
     android:id="@+id/draw_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.itheima.googleplaydemo.MainActivity">
+    tools:context="com.itheima.googleplaydemo.ui.activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+   <include layout="@layout/content_main"></include>
+
+
 
     <android.support.design.widget.NavigationView
         android:background="#ffffff"

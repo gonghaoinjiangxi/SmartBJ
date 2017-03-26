@@ -1,4 +1,4 @@
-package com.itheima.googleplaydemo;
+package com.itheima.googleplaydemo.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

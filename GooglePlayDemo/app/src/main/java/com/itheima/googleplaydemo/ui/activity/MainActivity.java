@@ -1,13 +1,21 @@
-package com.itheima.googleplaydemo;
+package com.itheima.googleplaydemo.ui.activity;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.itheima.googleplaydemo.R;
+import com.itheima.googleplaydemo.adapter.MainAdapter;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
@@ -16,7 +24,15 @@ public class MainActivity extends BaseActivity {
     NavigationView mSlideMenu;
     @BindView(R.id.draw_layout)
     DrawerLayout mDrawLayout;
+    @BindView(R.id.tool_bar)
+    Toolbar mToolBar;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
+    @BindView(R.id.tab_indicator)
+    TabLayout mTabIndicator;
     private ActionBarDrawerToggle mDrawerToggle;
+    private String[] mTitles ;
+    private MainAdapter mAdapter;
 
     @Override
     protected int getResId() {
@@ -26,10 +42,26 @@ public class MainActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-       // ActionBar bar = getActionBar();
+        initToolBar();
+        initMainContent();
+    }
+
+    private void initMainContent() {
+        mTitles = getResources().getStringArray(R.array.main_titles);
+
+        mAdapter = new MainAdapter(mTitles, getSupportFragmentManager());
+        mViewPager.setAdapter(mAdapter);
+
+        mTabIndicator.setupWithViewPager(mViewPager);
+    }
+
+    private void initToolBar() {
+        setSupportActionBar(mToolBar);
+        // ActionBar bar = getActionBar();
         ActionBar actionBar = getSupportActionBar();
         /*actionBar.setIcon(R.drawable.icon);
         actionBar.setDisplayShowHomeEnabled(true);*/
+
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawLayout, R.string.open, R.string.close);
@@ -52,9 +84,16 @@ public class MainActivity extends BaseActivity {
     private NavigationView.OnNavigationItemSelectedListener mListener = new NavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-           // mSlideMenu.setCheckedItem(item.getItemId());
+            // mSlideMenu.setCheckedItem(item.getItemId());
             return true;
         }
     };
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
