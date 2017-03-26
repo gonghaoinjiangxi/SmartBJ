@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.itheima.googleplaydemo.ui.fragment.FragmentFactory;
+
 /**
  * Created by 龚浩 on 2017/3/26.
  */
@@ -17,9 +19,10 @@ public class MainAdapter extends FragmentPagerAdapter{
         mDataList = dataList;
     }
 
+
     @Override
     public Fragment getItem(int position) {
-        return new Fragment();
+        return FragmentFactory.getFragment(position);
     }
 
     @Override
