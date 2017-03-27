@@ -13,8 +13,9 @@
         android:layout_height="60dp"/>
 
     <TextView
+        android:textSize="14sp"
         android:id="@+id/tv_title"
-        android:layout_marginTop="@dimen/middle_size"
+        android:layout_marginTop="@dimen/smaller_size"
         android:text="名称"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

@@ -4,11 +4,15 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <TextView
+        android:padding="@dimen/middle_size"
+        android:textSize="18sp"
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TableLayout
+        android:padding="@dimen/middle_size"
+        android:layout_marginTop="@dimen/middle_size"
         android:id="@+id/tab_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

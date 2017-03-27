@@ -2,6 +2,8 @@ package com.itheima.googleplaydemo.widgest;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
@@ -25,6 +27,7 @@ public class CategoryItemView extends RelativeLayout {
     TextView mTvTitle;
     @BindView(R.id.tab_layout)
     TableLayout mTabLayout;
+    private int mWidthPixels;
 
     public CategoryItemView(Context context) {
         this(context, null);
@@ -38,25 +41,42 @@ public class CategoryItemView extends RelativeLayout {
     }
 
     private void init() {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        mWidthPixels = metrics.widthPixels;
     }
 
     public void setData(CategoryItemBean bean) {
         List<CategoryItemBean.InfosBean> infos = bean.getInfos();
         mTvTitle.setText(bean.getTitle());
 
-
+        mTabLayout.removeAllViews();
         for (int i = 0; i < infos.size(); i++) {
             CategoryItemBean.InfosBean bean1 = infos.get(i);
             TableRow row = new TableRow(getContext());
 
+            TableRow.LayoutParams params = new TableRow.LayoutParams();
+            params.width = (mWidthPixels - mTabLayout.getPaddingLeft() - mTabLayout.getPaddingRight())/3;
+            params.gravity = Gravity.CENTER;
+
             CategoryRowItem item1 = new CategoryRowItem(getContext());
+            item1.setData(bean1.getName1(),bean1.getUrl1());
+            item1.setLayoutParams(params);
             row.addView(item1);
 
-            CategoryRowItem item2 = new CategoryRowItem(getContext());
-            row.addView(item2);
+            if(bean1.getName2().length() > 0 ) {
+                CategoryRowItem item2 = new CategoryRowItem(getContext());
+                item2.setData(bean1.getName2(),bean1.getUrl2());
+                item2.setLayoutParams(params);
+                row.addView(item2);
+            }
 
-            CategoryRowItem item3 = new CategoryRowItem(getContext());
-            row.addView(item3);
+            if(bean1.getName3().length() > 0) {
+                CategoryRowItem item3 = new CategoryRowItem(getContext());
+                item3.setData(bean1.getName3(),bean1.getUrl3());
+                item3.setLayoutParams(params);
+                row.addView(item3);
+            }
+
 
             mTabLayout.addView(row);
         }
