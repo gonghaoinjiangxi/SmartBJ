@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.itheima.googleplaydemo"
+        applicationId "com.itheima.smartbj02"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -28,7 +28,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.android.support:design:25.1.1'
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.github.uncleleonfan:ViewPagerIndicator:1.0.0'
+    compile 'com.github.uncleleonfan:SlidingMenu:1.0.0'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile project(':pulltorefreshlib')
+    compile project(':loopviewpagerlib')
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
