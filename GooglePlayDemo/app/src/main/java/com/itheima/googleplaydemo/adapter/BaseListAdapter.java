@@ -12,7 +12,16 @@ import java.util.List;
 
 public abstract class BaseListAdapter extends android.widget.BaseAdapter {
 
+    public Context getContext() {
+        return mContext;
+    }
+
     private Context mContext;
+
+    public List getDataList() {
+        return mDataList;
+    }
+
     private List mDataList;
 
     public BaseListAdapter(Context context, List dataList) {
@@ -53,12 +62,12 @@ public abstract class BaseListAdapter extends android.widget.BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        onBindView(holder, position);
+        convertView = onBindView(holder, position);
 
         return convertView;
     }
 
-    abstract void onBindView(ViewHolder view, int position);
+    abstract View onBindView(ViewHolder view, int position);
 
     abstract View onCreateViewHolder(int position);
 
