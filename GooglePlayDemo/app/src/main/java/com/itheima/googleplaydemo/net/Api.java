@@ -1,5 +1,7 @@
 package com.itheima.googleplaydemo.net;
 
+import com.itheima.googleplaydemo.bean.CategoryItemBean;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -14,4 +16,6 @@ public interface Api {
     Call<List<String>> listHot();
     @GET("recommend")
     Call<List<String>> listRecommend();
+    @GET("category")
+    Call<List<CategoryItemBean>> listCategory();
 }

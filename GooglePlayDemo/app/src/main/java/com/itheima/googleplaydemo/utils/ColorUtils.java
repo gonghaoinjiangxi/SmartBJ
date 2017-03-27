@@ -12,11 +12,10 @@ public class ColorUtils {
     public static int getArgb() {
         int argb;
         Random r = new Random();
-        int alpha = r.nextInt(255);
         int red = r.nextInt(255);
         int green = r.nextInt(255);
         int blue = r.nextInt(255);
-        argb = Color.argb(alpha,red,green,blue);
+        argb = Color.argb(255,red,green,blue);
         return argb;
     }
 }

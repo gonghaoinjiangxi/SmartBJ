@@ -1,12 +1,14 @@
 package com.itheima.googleplaydemo.ui.fragment;
 
 import android.view.View;
+import android.widget.ListAdapter;
 
 /**
  * Created by 龚浩 on 2017/3/26.
  */
 
-public class CategoryFragment extends BaseFragment {
+public class CategoryFragment extends BaseListFragment {
+
     @Override
     public void startLoadData() {
 
@@ -14,6 +16,11 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     public View getContentView() {
+        return null;
+    }
+
+    @Override
+    ListAdapter onCreateAdapter() {
         return null;
     }
 }

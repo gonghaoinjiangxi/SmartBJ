@@ -41,6 +41,7 @@ public abstract class BaseFragment extends Fragment {
         return root;
     }
 
+
     public abstract void startLoadData() ;
 
     //当链接网络数据成功时

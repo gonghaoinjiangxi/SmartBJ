@@ -56,9 +56,12 @@ public class HotFragment extends BaseFragment {
         if(mData != null) {
             for (int i = 0; i < mData.size(); i++) {
                 TextView view = new TextView(getContext());
+                //StateListDrawable selector = new StateListDrawable();
                 GradientDrawable drawable = new GradientDrawable();
                 drawable.setCornerRadius(padding);
                 drawable.setColor(ColorUtils.getArgb());
+
+                //selector.addState(new int[] {},drawable);
                 view.setText(mData.get(i));
                 view.setPadding(padding,padding,padding,padding);
                 view.setTextSize(18);

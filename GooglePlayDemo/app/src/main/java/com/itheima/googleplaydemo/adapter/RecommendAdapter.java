@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+import com.itheima.googleplaydemo.utils.ColorUtils;
 import com.itheima.googleplaydemo.widgest.StellarMap;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by 龚浩 on 2017/3/27.
@@ -48,10 +50,15 @@ public class RecommendAdapter implements StellarMap.Adapter {
     @Override
     public View getView(int group, int position, View convertView) {
 
-
-        TextView view = new TextView(mContext);
+        if(convertView == null) {
+            convertView = new TextView(mContext);
+        }
         int count = group * PAGE_SIZE + position;
+        TextView view = (TextView) convertView;
         view.setText(mData.get(count));
+        int size = 14 + new Random().nextInt(4);
+        view.setTextSize(size);
+        view.setTextColor(ColorUtils.getArgb());
         return view;
     }
 
