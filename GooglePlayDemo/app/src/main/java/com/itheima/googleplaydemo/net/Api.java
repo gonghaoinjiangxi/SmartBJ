@@ -25,4 +25,6 @@ public interface Api {
     Call<List<SubjectItemBean>> listSubject(@Query("index") int index);
     @GET("game")
     Call<List<AppListItemBean>> listGame(@Query("index") int index);
+    @GET("app")
+    Call<List<AppListItemBean>> listApp(@Query("index") int index);
 }

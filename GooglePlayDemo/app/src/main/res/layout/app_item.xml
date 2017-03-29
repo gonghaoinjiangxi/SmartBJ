@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:padding="@dimen/middle_size">
+                android:layout_marginTop="@dimen/middle_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/middle_size">
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:src="@drawable/ic_default"
         android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:src="@drawable/ic_default"/>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="@dimen/middle_size"
-        android:layout_toRightOf="@id/iv_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_container"
+        android:layout_toRightOf="@id/iv_icon"
+        android:orientation="vertical"
+        android:padding="@dimen/middle_size">
 
         <TextView
             android:id="@+id/app_name"
-            android:text="appName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="appName"/>
 
         <RatingBar
             android:id="@+id/app_rating_bar"
-            android:rating="3.5"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:rating="3.5"/>
 
         <TextView
             android:id="@+id/app_size"
@@ -40,8 +41,26 @@
     </LinearLayout>
 
     <com.itheima.googleplaydemo.widgest.downLoadView
-        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/ll_container"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/middle_size"
+        android:textSize="18sp"
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="详细描述"/>
 
 </RelativeLayout>

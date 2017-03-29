@@ -3,6 +3,8 @@ package com.itheima.googleplaydemo.adapter;
 import android.content.Context;
 import android.view.View;
 
+import com.itheima.googleplaydemo.widgest.LoadMoreProBarView;
+
 import java.util.List;
 
 /**
@@ -30,10 +32,15 @@ public abstract class BaseLoadMoreListAdapter<T> extends BaseListAdapter<T> {
     }
 
     @Override
-    abstract View onBindView(ViewHolder view, int position) ;
+    public View onBindView(ViewHolder view, int position) {
+        if(position != getCount() - 1) {
+            return onCreateView(view,position);
+        }
+        return new LoadMoreProBarView(getContext());
+    }
 
-    @Override
-    abstract View onCreateViewHolder(int position) ;
+    abstract View onCreateView(ViewHolder view, int position) ;
+
 
     @Override
     public int getItemViewType(int position) {

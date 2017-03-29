@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.itheima.googleplaydemo.bean.AppListItemBean;
+import com.itheima.googleplaydemo.widgest.AppListItemView;
 
 import java.util.List;
 
@@ -18,12 +19,15 @@ public class BaseAppListAdapter extends BaseLoadMoreListAdapter<AppListItemBean>
     }
 
     @Override
-    View onBindView(ViewHolder view, int position) {
-        return null;
+    View onCreateView(ViewHolder view, int position) {
+        AppListItemView itemView = (AppListItemView) view.mView;
+        itemView.setData(getDataList().get(position));
+        return itemView;
     }
+
 
     @Override
     View onCreateViewHolder(int position) {
-        return null;
+        return new AppListItemView(getContext());
     }
 }

@@ -1,6 +1,6 @@
 package com.itheima.googleplaydemo.ui.fragment;
 
-import android.widget.ListAdapter;
+import android.widget.BaseAdapter;
 
 import com.itheima.googleplaydemo.adapter.BaseAppListAdapter;
 import com.itheima.googleplaydemo.bean.AppListItemBean;
@@ -14,7 +14,16 @@ import java.util.List;
 
 public abstract class BaseAppListFragment extends BaseLoadMoreListFragment {
 
+    private static final String TAG = "BaseAppListFragment";
+
+    @Override
+    public void initListView() {
+        super.initListView();
+        getListView().setDivider(null);
+    }
+
     public List<AppListItemBean> getDataList() {
+
         return mDataList;
     }
 
@@ -24,7 +33,8 @@ public abstract class BaseAppListFragment extends BaseLoadMoreListFragment {
     abstract void loadMoreData() ;
 
     @Override
-    ListAdapter onCreateAdapter() {
+    BaseAdapter onCreateAdapter() {
+       // LogUtils.logd(TAG,"===========================:"+mDataList.size());
         return new BaseAppListAdapter(getContext() , mDataList);
     }
 }

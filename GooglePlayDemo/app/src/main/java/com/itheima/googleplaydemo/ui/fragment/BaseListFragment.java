@@ -2,7 +2,7 @@ package com.itheima.googleplaydemo.ui.fragment;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 /**
@@ -12,11 +12,11 @@ import android.widget.ListView;
 public abstract class BaseListFragment extends BaseFragment {
 
 
-    public ListAdapter getAdapter() {
+    public BaseAdapter getAdapter() {
         return mAdapter;
     }
 
-    private ListAdapter mAdapter;
+    private BaseAdapter mAdapter;
 
     public ListView getListView() {
         return mListView;
@@ -28,6 +28,7 @@ public abstract class BaseListFragment extends BaseFragment {
     public void startLoadData() {
 
     }
+
 
     //返回一个listview
     @Override
@@ -53,5 +54,5 @@ public abstract class BaseListFragment extends BaseFragment {
     private void onListClick(int position) {
     }
 
-    abstract ListAdapter onCreateAdapter() ;
+    abstract BaseAdapter onCreateAdapter() ;
 }

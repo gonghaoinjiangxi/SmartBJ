@@ -1,6 +1,6 @@
 package com.itheima.googleplaydemo.ui.fragment;
 
-import android.widget.ListAdapter;
+import android.widget.BaseAdapter;
 
 import com.itheima.googleplaydemo.adapter.CategoryAdapter;
 import com.itheima.googleplaydemo.bean.CategoryItemBean;
@@ -39,7 +39,7 @@ public class CategoryFragment extends BaseListFragment {
 
 
     @Override
-    ListAdapter onCreateAdapter() {
+    BaseAdapter onCreateAdapter() {
         CategoryAdapter adapter = new CategoryAdapter(getContext(), mDataList);
         return adapter;
     }

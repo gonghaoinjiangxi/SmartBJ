@@ -21,18 +21,25 @@ public class SubjectAdapter extends BaseLoadMoreListAdapter<SubjectItemBean> {
     }
 
     @Override
-    View onBindView(ViewHolder view, int position) {
-        if(position != getCount() - 1) {
-            SubjectItemView itemView = (SubjectItemView) view.mView;
-            itemView.setData(getDataList().get(position));
-            return itemView;
-        }
-        return new LoadMoreProBarView(getContext());
+    protected View onCreateView(ViewHolder view ,int position) {
+        SubjectItemView itemView = (SubjectItemView) view.mView;
+        itemView.setData(getDataList().get(position));
+        return itemView;
     }
+
+//    @Override
+//    View onBindView(ViewHolder view, int position) {
+//        if(position != getCount() - 1) {
+//            SubjectItemView itemView = (SubjectItemView) view.mView;
+//            itemView.setData(getDataList().get(position));
+//            return itemView;
+//        }
+//        return new LoadMoreProBarView(getContext());
+//    }
 
     @Override
     View onCreateViewHolder(int position) {
-        if(position == getDataList().size() - 1) {
+        if (position == getDataList().size() - 1) {
             return new LoadMoreProBarView(getContext());
         }
         return new SubjectItemView(getContext());

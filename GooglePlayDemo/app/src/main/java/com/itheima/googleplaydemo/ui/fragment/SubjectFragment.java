@@ -1,7 +1,6 @@
 package com.itheima.googleplaydemo.ui.fragment;
 
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 
 import com.itheima.googleplaydemo.adapter.SubjectAdapter;
 import com.itheima.googleplaydemo.bean.SubjectItemBean;
@@ -60,7 +59,7 @@ public class SubjectFragment extends BaseLoadMoreListFragment {
     }
 
     @Override
-    ListAdapter onCreateAdapter() {
+    BaseAdapter onCreateAdapter() {
         return new SubjectAdapter(getContext(),mDataList);
     }
 }
