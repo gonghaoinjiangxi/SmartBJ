@@ -10,7 +10,7 @@ import java.util.List;
  * Created by 龚浩 on 2017/3/27.
  */
 
-public abstract class BaseListAdapter extends android.widget.BaseAdapter {
+public abstract class BaseListAdapter<T> extends android.widget.BaseAdapter {
 
     public Context getContext() {
         return mContext;
@@ -18,13 +18,14 @@ public abstract class BaseListAdapter extends android.widget.BaseAdapter {
 
     private Context mContext;
 
-    public List getDataList() {
+    public List<T> getDataList() {
         return mDataList;
     }
 
-    private List mDataList;
 
-    public BaseListAdapter(Context context, List dataList) {
+    private List<T> mDataList;
+
+    public BaseListAdapter(Context context, List<T> dataList) {
 
         mContext = context;
         mDataList = dataList;

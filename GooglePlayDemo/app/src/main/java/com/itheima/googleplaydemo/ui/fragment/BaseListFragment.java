@@ -12,6 +12,12 @@ import android.widget.ListView;
 public abstract class BaseListFragment extends BaseFragment {
 
 
+    public ListView getListView() {
+        return mListView;
+    }
+
+    private ListView mListView;
+
     @Override
     public void startLoadData() {
 
@@ -20,10 +26,14 @@ public abstract class BaseListFragment extends BaseFragment {
     //返回一个listview
     @Override
     public View getContentView() {
-        ListView listView =  new ListView(getContext());
-        listView.setAdapter(onCreateAdapter());
-        listView.setOnItemClickListener(mOnItemClickListener);
-        return listView;
+        mListView = new ListView(getContext());
+        mListView.setAdapter(onCreateAdapter());
+        initListView();
+        mListView.setOnItemClickListener(mOnItemClickListener);
+        return mListView;
+    }
+
+    public void initListView() {
     }
 
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {

@@ -1,6 +1,8 @@
 package com.itheima.googleplaydemo.ui.fragment;
 
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -53,19 +55,26 @@ public class HotFragment extends BaseFragment {
     public View getContentView() {
         FlowLayout flowLayout = new FlowLayout(getContext());
         int padding = getContext().getResources().getDimensionPixelOffset(R.dimen.smaller_size);
+        flowLayout.setPadding(padding,padding,padding,padding);
         if(mData != null) {
             for (int i = 0; i < mData.size(); i++) {
                 TextView view = new TextView(getContext());
-                //StateListDrawable selector = new StateListDrawable();
+                StateListDrawable selector = new StateListDrawable();
                 GradientDrawable drawable = new GradientDrawable();
+                GradientDrawable pressDrawable = new GradientDrawable();
                 drawable.setCornerRadius(padding);
                 drawable.setColor(ColorUtils.getArgb());
 
-                //selector.addState(new int[] {},drawable);
+                pressDrawable.setCornerRadius(padding);
+                pressDrawable.setColor(Color.BLUE);
+
+                selector.addState(new int[]{android.R.attr.state_pressed}, pressDrawable);
+                selector.addState(new int[]{},drawable);
                 view.setText(mData.get(i));
-                view.setPadding(padding,padding,padding,padding);
+                view.setClickable(true);
+                view.setPadding(padding, padding, padding, padding);
                 view.setTextSize(18);
-                view.setBackgroundDrawable(drawable);
+                view.setBackgroundDrawable(selector);
                 view.setGravity(Gravity.CENTER);
                 flowLayout.addView(view);
             }

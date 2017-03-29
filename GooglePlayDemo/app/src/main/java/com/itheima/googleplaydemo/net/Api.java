@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 /**
  * Created by 龚浩 on 2017/3/26.
@@ -18,4 +19,6 @@ public interface Api {
     Call<List<String>> listRecommend();
     @GET("category")
     Call<List<CategoryItemBean>> listCategory();
+    @GET("subject")
+    Call<List<CategoryItemBean>> listSubject(@Path("index") int index);
 }
