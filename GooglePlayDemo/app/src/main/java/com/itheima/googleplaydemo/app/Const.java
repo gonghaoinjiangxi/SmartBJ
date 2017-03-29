@@ -6,4 +6,5 @@ package com.itheima.googleplaydemo.app;
 
 public class Const {
     public static final String HTTP_URL  = "http://10.0.2.2:8080/GooglePlayServer/";
+    public static final String HTTP_IMAGINE_URL  = Const.HTTP_URL + "image?name=";
 }

@@ -10,34 +10,35 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.itheima.googleplaydemo.R;
 import com.itheima.googleplaydemo.app.Const;
+import com.itheima.googleplaydemo.bean.SubjectItemBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by 龚浩 on 2017/3/27.
+ * Created by 龚浩 on 2017/3/29.
  */
 
-public class CategoryRowItem extends LinearLayout {
+public class SubjectItemView extends LinearLayout {
 
     @BindView(R.id.iv_icon)
     ImageView mIvIcon;
-    @BindView(R.id.tv_title)
-    TextView mTvTitle;
+    @BindView(R.id.tv_desc)
+    TextView mTvDesc;
 
-    public CategoryRowItem(Context context) {
+    public SubjectItemView(Context context) {
         this(context, null);
     }
 
-    public CategoryRowItem(Context context, AttributeSet attrs) {
+    public SubjectItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        View.inflate(getContext(), R.layout.row_item, this);
+        View.inflate(getContext(), R.layout.subject_view, this);
         ButterKnife.bind(this,this);
     }
 
-    public void setData(String name1, String url) {
-        mTvTitle.setText(name1);
-        String imgUrl = Const.HTTP_IMAGINE_URL +url;
-        Glide.with(getContext()).load(imgUrl).centerCrop().placeholder(R.drawable.ic_default).into(mIvIcon);
+    public void setData(SubjectItemBean bean) {
+        mTvDesc.setText(bean.getDes());
+        String url = Const.HTTP_IMAGINE_URL + bean.getUrl();
+        Glide.with(getContext()).load(url).into(mIvIcon);
     }
 }

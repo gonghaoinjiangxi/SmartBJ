@@ -12,6 +12,12 @@ import android.widget.ListView;
 public abstract class BaseListFragment extends BaseFragment {
 
 
+    public ListAdapter getAdapter() {
+        return mAdapter;
+    }
+
+    private ListAdapter mAdapter;
+
     public ListView getListView() {
         return mListView;
     }
@@ -27,7 +33,8 @@ public abstract class BaseListFragment extends BaseFragment {
     @Override
     public View getContentView() {
         mListView = new ListView(getContext());
-        mListView.setAdapter(onCreateAdapter());
+        mAdapter = onCreateAdapter();
+        mListView.setAdapter(mAdapter);
         initListView();
         mListView.setOnItemClickListener(mOnItemClickListener);
         return mListView;

@@ -34,12 +34,10 @@ public abstract class BaseLoadMoreListFragment extends BaseListFragment {
 
     abstract void loadMoreData() ;
 
-    abstract int getLoadPosition() ;
+     protected int getLoadPosition() {
+         return getAdapter().getCount() - 1;
+     };
 
     @Override
-    ListAdapter onCreateAdapter() {
-
-
-        return null;
-    }
+    abstract  ListAdapter onCreateAdapter() ;
 }
