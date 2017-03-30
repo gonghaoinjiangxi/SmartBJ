@@ -1,12 +1,10 @@
 package com.itheima.googleplaydemo.ui.activity;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.itheima.googleplaydemo.R;
-import com.itheima.googleplaydemo.app.Const;
 
 import butterknife.BindView;
 
@@ -19,15 +17,14 @@ public class AppDetailActivity extends BaseActivity {
     @BindView(R.id.tool_bar)
     Toolbar mToolBar;
 
+
     @Override
     public void init() {
         super.init();
         initActionBar();
-        Intent intent = getIntent();
-        String pacakageName = intent.getStringExtra(Const.PACAKAGE_NAME);
-
-
     }
+
+
 
     private void initActionBar() {
         setSupportActionBar(mToolBar);
@@ -50,5 +47,6 @@ public class AppDetailActivity extends BaseActivity {
     protected int getResId() {
         return R.layout.activity_detail;
     }
+
 
 }

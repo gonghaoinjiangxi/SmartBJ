@@ -35,7 +35,7 @@ public class DetailBean {
     private String name;
     private String packageName;
     private int size;
-    private double stars;
+    private float stars;
     private String version;
     /**
      * safeDes : 已通过安智市场安全检测，请放心使用
@@ -127,11 +127,11 @@ public class DetailBean {
         this.size = size;
     }
 
-    public double getStars() {
+    public float getStars() {
         return stars;
     }
 
-    public void setStars(double stars) {
+    public void setStars(float stars) {
         this.stars = stars;
     }
 

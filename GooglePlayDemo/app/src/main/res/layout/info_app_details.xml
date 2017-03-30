@@ -10,25 +10,25 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/iv_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_default"/>
         
         <LinearLayout
+            android:padding="@dimen/middle_size"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         <TextView
-            android:padding="@dimen/smaller_size"
             android:id="@+id/app_name"
-            android:text="app Name"
+            android:text="@string/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
             <RatingBar
                 android:id="@+id/rating_bar"
-                android:padding="@dimen/smaller_size"
                 android:layout_marginTop="@dimen/middle_size"
                 android:rating="3.5"
                 style="@style/Widget.AppCompat.RatingBar.Small"
@@ -47,14 +47,14 @@
 
         <TextView
             android:id="@+id/download_count"
-            android:text="下载量"
+            android:text="@string/download_count"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/version_count"
-            android:text="下载量"
+            android:text="@string/version_code"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
@@ -67,14 +67,14 @@
 
         <TextView
             android:id="@+id/app_date"
-            android:text="下载量"
+            android:text="@string/time"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/app_size"
-            android:text="下载量"
+            android:text="@string/app_size"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>

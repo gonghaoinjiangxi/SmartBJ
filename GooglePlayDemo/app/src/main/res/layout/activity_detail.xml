@@ -1,63 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tool_bar"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
     </android.support.v7.widget.Toolbar>
 
-    <ScrollView
+
+
+    <fragment
+        android:id="@+id/content_fragment"
+        class="com.itheima.googleplaydemo.ui.fragment.AppDetailContent"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--app顶部的信息-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-
-            </LinearLayout>
-
-
-            <!--app安全信息-->
-
-
-
-
-            <!--轮播图片信息-->
-
-
-
-            <!--底部简介信息-->
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-        <TextView
-            android:text="底部内容"
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
+    </fragment>
 
 </LinearLayout>
