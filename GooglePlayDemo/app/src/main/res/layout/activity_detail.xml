@@ -6,9 +6,58 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tool_bar"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--app顶部的信息-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            </LinearLayout>
+
+
+            <!--app安全信息-->
+
+
+
+
+            <!--轮播图片信息-->
+
+
+
+            <!--底部简介信息-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:text="底部内容"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 
 </LinearLayout>

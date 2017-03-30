@@ -2,6 +2,7 @@ package com.itheima.googleplaydemo.net;
 
 import com.itheima.googleplaydemo.bean.AppListItemBean;
 import com.itheima.googleplaydemo.bean.CategoryItemBean;
+import com.itheima.googleplaydemo.bean.DetailBean;
 import com.itheima.googleplaydemo.bean.HomeItemBean;
 import com.itheima.googleplaydemo.bean.SubjectItemBean;
 
@@ -30,4 +31,6 @@ public interface Api {
     Call<List<AppListItemBean>> listApp(@Query("index") int index);
     @GET("home")
     Call<HomeItemBean> listHome(@Query("index") int index);
+    @GET("detail")
+    Call<DetailBean> listDetail(@Query("packageName") String packageName);
 }
