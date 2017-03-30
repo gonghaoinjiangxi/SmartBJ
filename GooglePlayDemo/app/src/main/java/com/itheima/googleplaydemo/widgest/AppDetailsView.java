@@ -20,6 +20,8 @@ public class AppDetailsView extends LinearLayout {
     AppDetaislInfo mAppInfos;
     @BindView(R.id.app_security)
     AppSecurityView mAppSecurity;
+    @BindView(R.id.app_image)
+    AppImageView mAppImage;
 
     public AppDetailsView(Context context) {
         this(context, null);
@@ -38,6 +40,7 @@ public class AppDetailsView extends LinearLayout {
     public void bindView(DetailBean bean) {
         mAppInfos.bindView(bean);
         mAppSecurity.bindView(bean);
+        mAppImage.bindView(bean);
 
     }
 }
