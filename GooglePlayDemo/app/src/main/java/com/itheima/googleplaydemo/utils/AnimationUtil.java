@@ -1,11 +1,15 @@
 package com.itheima.googleplaydemo.utils;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
+import android.widget.LinearLayout;
 
 public class AnimationUtil {
 
@@ -126,5 +130,26 @@ public class AnimationUtil {
 		ret.addAnimation(anim);
 
 		return ret;
+	}
+
+	public static void isOpen(int start , int end , final View view){
+		ValueAnimator animator = new ValueAnimator().ofFloat(start,end);
+		final LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(view.getMeasuredWidth(),0);
+		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+
+				float value = (float) animation.getAnimatedValue();
+				// LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLlContainer.getLayoutParams();
+				params.height = (int) value;
+				view.setLayoutParams(params);
+			}
+		});
+		animator.start();
+	}
+
+	public static void isRotation(float fromDegree,float toDegree,View view) {
+		ObjectAnimator ratation = new ObjectAnimator().ofFloat(view, "rotation", fromDegree, toDegree);
+		ratation.start();
 	}
 }

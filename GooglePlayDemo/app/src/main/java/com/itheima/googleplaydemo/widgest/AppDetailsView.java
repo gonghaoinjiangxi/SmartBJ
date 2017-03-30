@@ -18,6 +18,8 @@ import butterknife.ButterKnife;
 public class AppDetailsView extends LinearLayout {
     @BindView(R.id.app_infos)
     AppDetaislInfo mAppInfos;
+    @BindView(R.id.app_security)
+    AppSecurityView mAppSecurity;
 
     public AppDetailsView(Context context) {
         this(context, null);
@@ -30,11 +32,12 @@ public class AppDetailsView extends LinearLayout {
 
     private void init() {
         View.inflate(getContext(), R.layout.details_view, this);
-        ButterKnife.bind(this,this);
+        ButterKnife.bind(this, this);
     }
 
     public void bindView(DetailBean bean) {
         mAppInfos.bindView(bean);
+        mAppSecurity.bindView(bean);
 
     }
 }
