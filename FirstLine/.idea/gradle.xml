@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/drawview2" />
             <option value="$PROJECT_DIR$/heimagril" />
             <option value="$PROJECT_DIR$/myview" />
+            <option value="$PROJECT_DIR$/myviewgroup" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

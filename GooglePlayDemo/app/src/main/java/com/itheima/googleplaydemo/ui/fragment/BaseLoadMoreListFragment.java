@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 
 public abstract class BaseLoadMoreListFragment extends BaseListFragment {
 
-
     @Override
     public void initListView() {
         super.initListView();
@@ -35,7 +34,7 @@ public abstract class BaseLoadMoreListFragment extends BaseListFragment {
     abstract void loadMoreData() ;
 
      private int getLoadPosition() {
-         return getAdapter().getCount() - 1;
+         return getAdapter().getCount() - 1 + getListView().getHeaderViewsCount();
      };
 
     @Override

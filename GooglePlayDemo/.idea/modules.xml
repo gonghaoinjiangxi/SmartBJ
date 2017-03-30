@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GooglePlayDemo.iml" filepath="$PROJECT_DIR$/GooglePlayDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loopviewpagerlib/loopviewpagerlib.iml" filepath="$PROJECT_DIR$/loopviewpagerlib/loopviewpagerlib.iml" />
     </modules>
   </component>
 </project>
