@@ -11,6 +11,7 @@ import com.itheima.googleplaydemo.bean.DetailBean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by 龚浩 on 2017/3/31.
@@ -20,7 +21,7 @@ public class AppBottomView extends LinearLayout {
     @BindView(R.id.btn_collect)
     Button mBtnCollect;
     @BindView(R.id.btn_downLoad)
-    Button mBtnDownLoad;
+    SmartButton mBtnDownLoad;
     @BindView(R.id.btn_share)
     Button mBtnShare;
 
@@ -39,6 +40,28 @@ public class AppBottomView extends LinearLayout {
     }
 
     public void bindView(DetailBean bean) {
+
+    }
+
+    @OnClick({R.id.btn_collect, R.id.btn_downLoad, R.id.btn_share})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_collect:
+                break;
+            case R.id.btn_downLoad:
+                startDownLoad();
+                break;
+            case R.id.btn_share:
+                break;
+        }
+    }
+
+    private void startDownLoad() {
+        //找到目标apk文件开始下载,并且设置进度
+
+        int progress = 0;
+
+        mBtnDownLoad.setProgress(progress);
 
     }
 }

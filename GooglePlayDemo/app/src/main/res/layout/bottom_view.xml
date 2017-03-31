@@ -19,7 +19,7 @@
         android:layout_marginBottom="@dimen/smaller_size"
         />
 
-    <Button
+    <com.itheima.googleplaydemo.widgest.SmartButton
         android:id="@+id/btn_downLoad"
         android:layout_marginLeft="@dimen/middle_size"
        android:layout_marginRight="@dimen/middle_size"
