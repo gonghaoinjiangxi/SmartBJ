@@ -34,8 +34,16 @@
                 android:id="@+id/app_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
 
+            <!--信息详情部分-->
+            <com.itheima.googleplaydemo.widgest.AppSummaryView
+                android:id="@+id/app_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
 
 
 
