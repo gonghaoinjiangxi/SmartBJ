@@ -24,6 +24,8 @@ public class AppDetailsView extends LinearLayout {
     AppImageView mAppImage;
     @BindView(R.id.app_summary)
     AppSummaryView mAppSummary;
+    @BindView(R.id.app_bottom)
+    AppBottomView mAppBottom;
 
     public AppDetailsView(Context context) {
         this(context, null);
@@ -44,5 +46,6 @@ public class AppDetailsView extends LinearLayout {
         mAppSecurity.bindView(bean);
         mAppImage.bindView(bean);
         mAppSummary.bindView(bean);
+        mAppBottom.bindView(bean);
     }
 }

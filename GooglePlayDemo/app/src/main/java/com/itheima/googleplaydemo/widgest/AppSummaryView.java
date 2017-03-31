@@ -84,11 +84,9 @@ public class AppSummaryView extends LinearLayout {
     private void toggle() {
 
         if(isOpen) {
-            Log.d(TAG, "toggle: ==="+measureHeight);
             AnimationUtil.isOpen(mHeight,measureHeight,mAppDesc);
             AnimationUtil.isRotation(0,-180,mIvArrow);
         }else {
-
             AnimationUtil.isOpen(measureHeight,mHeight,mAppDesc);
             AnimationUtil.isRotation(-180,0,mIvArrow);
         }

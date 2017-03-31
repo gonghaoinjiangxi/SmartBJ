@@ -43,17 +43,16 @@
 
 
 
+
         </LinearLayout>
-
-
 
     </ScrollView>
 
-    <TextView
+    <com.itheima.googleplaydemo.widgest.AppBottomView
+        android:id="@+id/app_bottom"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="底部内容"/>
+        android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
