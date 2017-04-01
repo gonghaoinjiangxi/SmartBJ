@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.itheima.googleplaydemo.R;
 import com.itheima.googleplaydemo.bean.DetailBean;
 import com.itheima.googleplaydemo.utils.AnimationUtil;
+import com.itheima.googleplaydemo.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,8 +51,10 @@ public class AppSummaryView extends LinearLayout {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
+                ToastUtils.makeText(getContext(),"213321");
                 getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 mHeight = mAppDesc.getMeasuredHeight();
+                Log.d(TAG, "onGlobalLayout: " + mHeight);
                 int lineCount = mAppDesc.getLineCount();
                 if (lineCount > MAX_LINES) {
                     //初始化行
@@ -62,6 +65,7 @@ public class AppSummaryView extends LinearLayout {
                 mAppDesc.measure(0,0);
                 final int finalHaight =  mAppDesc.getMeasuredHeight();
                 measureHeight = finalHaight;
+                Log.d(TAG, "onGlobalLayout: " + measureHeight);
             }
         });
 
@@ -82,7 +86,6 @@ public class AppSummaryView extends LinearLayout {
     }
 
     private void toggle() {
-
         if(isOpen) {
             AnimationUtil.isOpen(mHeight,measureHeight,mAppDesc);
             AnimationUtil.isRotation(0,-180,mIvArrow);
