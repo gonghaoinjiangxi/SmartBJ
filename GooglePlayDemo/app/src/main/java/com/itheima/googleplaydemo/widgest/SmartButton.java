@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.Button;
 
 import com.itheima.googleplaydemo.R;
@@ -17,10 +18,12 @@ import com.itheima.googleplaydemo.net.DownLoadManager;
  */
 
 public class SmartButton extends Button {
+    private static final String TAG = "SmartButton";
 
     private Paint mPaint;
     private float mRight;
     private Context mContext;
+    private int mMax;
 
     public SmartButton(Context context) {
         this(context, null);
@@ -42,10 +45,15 @@ public class SmartButton extends Button {
         canvas.drawRect(0, 0, mRight, getMeasuredHeight(), mPaint);
         super.onDraw(canvas);
     }
+    public void  setMax(int max) {
+        mMax = max;
+    }
 
     public void setProgress(int progress) {
-        mRight = progress * getMeasuredWidth() / 100;
-        mRight = 100;
+        float rate = (float) ((progress*1.0) / mMax);
+        setText((int)(100*rate) + "%");
+        mRight = rate * getMeasuredWidth();
+        Log.d(TAG, "setProgress: ======"+mRight);
         invalidate();
     }
 

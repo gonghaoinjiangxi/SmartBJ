@@ -19,6 +19,16 @@ public class DownLoadInfo {
     private String pacakageName;
     private int status;
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    private int size;
+
     public String getDownloadUrl() {
         return downloadUrl;
     }

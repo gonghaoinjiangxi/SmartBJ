@@ -51,7 +51,7 @@ public class AppBottomView extends LinearLayout {
 
     @OnClick(R.id.btn_downLoad)
     public void onClick() {
-        DownLoadManager.getInstant().handleClickEvent(mContext,mBean);
+        DownLoadManager.getInstant().handleClickEvent(mContext,mBean , mBtnDownLoad);
 
     }
 }

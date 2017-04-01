@@ -12,6 +12,7 @@ import android.util.Log;
 import com.itheima.googleplaydemo.app.Const;
 import com.itheima.googleplaydemo.bean.DetailBean;
 import com.itheima.googleplaydemo.bean.DownLoadInfo;
+import com.itheima.googleplaydemo.widgest.SmartButton;
 
 import java.io.Closeable;
 import java.io.File;
@@ -41,6 +42,7 @@ public class DownLoadManager {
     public static final int STATE_DOWNLOADED = 5;//下载完成
     public static final int STATE_INSTALLED = 6;//已安装
     private static final String TAG = "DownLoadManager";
+    private SmartButton mBtnDownLoad;
 
     //私有化构造,防止外部类通过构造创建本类对象
     private DownLoadManager() {
@@ -80,6 +82,7 @@ public class DownLoadManager {
         downLoadInfo.setDownloadUrl(downloadUrl);
         downLoadInfo.setDownloadPath(path);
         downLoadInfo.setPacakageName(bean.getPackageName());
+        downLoadInfo.setSize(bean.getSize());
         File file = new File(path);
         if (!file.exists()) {
             downLoadInfo.setStatus(STATE_UN_DOWNLOAD);
@@ -109,12 +112,12 @@ public class DownLoadManager {
         }
     }
 
-    public void handleClickEvent(Context context, DetailBean bean) {
+    public void handleClickEvent(Context context, DetailBean bean, SmartButton btnDownLoad) {
         Log.d(TAG, "getPacakageInstall: ====++++++"+bean.getPackageName());
         DownLoadInfo info = mHashMap.get(bean.getPackageName());
         switch (info.getStatus()) {
             case DownLoadManager.STATE_UN_DOWNLOAD:
-                startDownload(info);
+                startDownload(info,btnDownLoad);
                 break;
             case DownLoadManager.STATE_DOWNLOADING:
 
@@ -165,14 +168,15 @@ public class DownLoadManager {
 
     }
 
-    private void startDownload(DownLoadInfo info) {
+    private void startDownload(DownLoadInfo info, SmartButton btnDownLoad) {
+        mBtnDownLoad = btnDownLoad;
         //开始下载,开启子线程
         DownloadTask task = new DownloadTask();
         task.execute(info);
     }
 
 
-    class DownloadTask extends AsyncTask<DownLoadInfo, Void, Void> {
+    class DownloadTask extends AsyncTask<DownLoadInfo, Integer, Void> {
 
         private OkHttpClient mOkHttpClient = new OkHttpClient();
 
@@ -188,6 +192,7 @@ public class DownLoadManager {
             Request request = new Request.Builder().url(url).build();
             InputStream inputStream = null;
             FileOutputStream outputStream = null;
+            int max = info.getSize();
 
             try {
                 Response response = mOkHttpClient.newCall(request).execute();
@@ -200,6 +205,7 @@ public class DownLoadManager {
                         outputStream.write(buffer, 0, len);
                         progress = progress +len;
                         Log.d(TAG, "doInBackground: ====" + progress);
+                        publishProgress(progress,max);
                     }
                     Log.d(TAG, "doInBackground: ============================下载完成");
                 }
@@ -210,6 +216,14 @@ public class DownLoadManager {
                 closeStream(outputStream);
             }
             return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            Integer progress = values[0];
+            Integer max = values[1];
+            mBtnDownLoad.setMax(max);
+            mBtnDownLoad.setProgress(progress);
         }
     }
 
