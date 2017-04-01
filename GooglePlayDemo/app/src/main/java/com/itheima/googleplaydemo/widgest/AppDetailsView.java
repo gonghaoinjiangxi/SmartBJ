@@ -47,5 +47,7 @@ public class AppDetailsView extends LinearLayout {
         mAppImage.bindView(bean);
         mAppSummary.bindView(bean);
         mAppBottom.bindView(bean);
+
+
     }
 }

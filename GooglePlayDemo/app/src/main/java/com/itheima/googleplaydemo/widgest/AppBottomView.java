@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.itheima.googleplaydemo.R;
 import com.itheima.googleplaydemo.bean.DetailBean;
+import com.itheima.googleplaydemo.net.DownLoadManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +25,8 @@ public class AppBottomView extends LinearLayout {
     SmartButton mBtnDownLoad;
     @BindView(R.id.btn_share)
     Button mBtnShare;
+    private DetailBean mBean;
+    private Context mContext;
 
     public AppBottomView(Context context) {
         this(context, null);
@@ -31,6 +34,7 @@ public class AppBottomView extends LinearLayout {
 
     public AppBottomView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
         init();
     }
 
@@ -40,28 +44,14 @@ public class AppBottomView extends LinearLayout {
     }
 
     public void bindView(DetailBean bean) {
-
+        mBean = bean;
+        mBtnDownLoad.SyncStatus(bean);
     }
 
-    @OnClick({R.id.btn_collect, R.id.btn_downLoad, R.id.btn_share})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_collect:
-                break;
-            case R.id.btn_downLoad:
-                startDownLoad();
-                break;
-            case R.id.btn_share:
-                break;
-        }
-    }
 
-    private void startDownLoad() {
-        //找到目标apk文件开始下载,并且设置进度
-
-        int progress = 0;
-
-        mBtnDownLoad.setProgress(progress);
+    @OnClick(R.id.btn_downLoad)
+    public void onClick() {
+        DownLoadManager.getInstant().handleClickEvent(mContext,mBean);
 
     }
 }

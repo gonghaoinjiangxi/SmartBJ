@@ -2,6 +2,7 @@ package com.itheima.googleplaydemo.widgest;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -42,7 +43,6 @@ public class AppImageView extends HorizontalScrollView {
     private void init() {
         View.inflate(getContext(), R.layout.app_image, this);
         ButterKnife.bind(this, this);
-        getParent();
     }
 
     public void bindView( DetailBean bean) {
@@ -69,8 +69,8 @@ public class AppImageView extends HorizontalScrollView {
 
                         Glide.with(getContext()).load(url).override(Target.SIZE_ORIGINAL,Target.SIZE_ORIGINAL).into(view);
                         window.setContentView(view);
-                        window.showAsDropDown(imageView);
-                    }
+//                        window.showAsDropDown(imageView);
+                        window.showAtLocation(AppImageView.this, Gravity.CENTER, 0, 0);                    }
                 }
             });
             Glide.with(getContext()).load(url).override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).into(imageView);
